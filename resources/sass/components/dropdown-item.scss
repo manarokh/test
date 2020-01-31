@@ -1,0 +1,7 @@
+.dropdown-item{
+    @apply .block .text-default .leading-loose .px-4;   
+}
+
+.dropdown-item:hover{
+    @apply .underline ;
+}

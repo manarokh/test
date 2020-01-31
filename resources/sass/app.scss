@@ -1,0 +1,66 @@
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+// Bulma
+//@import './node_modules/bulma/bulma.sass';
+//@import "bulma/css/bulma.min.css";
+@import 'themes/light';
+@import 'themes/dark';
+
+@import 'components/button';
+@import 'components/card';
+@import 'components/form-input';
+@import 'components/dropdown-item';
+
+
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+// .button-primary{
+//     @apply bg-button text-white font-bold py-2 px-4 mr-1 rounded-full shadow;
+// }
+
+.button-white{
+    @apply bg-white text-black font-bold py-2 px-4 mr-1 rounded-full shadow;
+}
+.button-white:hover{
+    @apply bg-gray-300 text-black font-bold py-2 px-4 mr-1 rounded-full shadow;
+}
+
+// .card{
+//     @apply bg-card rounded-lg p-4 shadow;
+//     color : var(--text-default-color);
+// }
+
+html , button {
+    @apply .text-default
+}
+
+
+
+// .theme-light {
+//     --page-background-color : #F5F6F9;
+//     --card-background-color : #FFF;
+//     --header-background-color : #FFF;
+//     --button-background-color : #FC8181;
+// }
+
+// .theme-dark {
+//     --page-background-color : #17181E;
+//     --card-background-color : #1F2027;
+//     --header-background-color : #1F2027;
+//     --button-background-color : #FC8181;
+    
+//     --text-default-color :#fff;
+// }

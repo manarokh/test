@@ -1,0 +1,54 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\Task;
+use App\Project;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class TaskTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */ 
+    public function task_belong_to_project(){
+        
+        $this->withoutExceptionHandling();
+        
+        $task = factory('App\Task')->create();
+
+        $this->assertInstanceOf(Project::class , $task->project);
+    }
+
+
+    /** @test */ 
+    public function task_has_path(){
+        $task = factory('App\Task')->create();
+
+        $this->assertEquals( '/projects/'. $task->project->id . '/tasks/'. $task->id , $task->path() );
+    }
+
+    /** @test */ 
+    public function task_can_be_completed(){
+        $task = factory(Task::class)->create();
+
+        $this->assertFalse($task->completed);
+
+        $task->complete();
+
+        $this->assertTrue($task->fresh()->completed);
+    }
+
+    /** @test */ 
+    public function task_can_be_incompleted(){
+        $task = factory(Task::class)->create();
+
+        $task->complete();
+        $this->assertTrue($task->completed);
+
+        $task->incomplete();
+        $this->assertFalse($task->fresh()->completed);
+    }
+}
